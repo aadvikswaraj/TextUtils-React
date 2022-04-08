@@ -23,15 +23,7 @@ export default function TextForm(props) {
   
   // Handling Remove extra spaces btn 
   function removeExtraSpaces() {
-    let mytxt = document.getElementById('mytxt');
-    let l = mytxt.value.split(' ');
-    for (let i = 0; i < l.length; i++) {
-      if (l[i] === '') {
-        l.splice(i, 1);
-        i--;
-      }
-    }
-    setMyTxt(l.join(' '));
+    setMyTxt(myTxt.split(' ').filter(t=>{return t !== ''}).join(' '));
     props.showAlert('success', 'Removed extra white spaces.');
   }
   
